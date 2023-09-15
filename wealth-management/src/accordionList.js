@@ -1,16 +1,19 @@
+import React from "react";
+import { Accordion } from "flowbite-react";
+
 const AccordionList = ({ data, title }) => {
-  // const section = props.data;
-  // const pageTitle = props.title;
+  //const [isActive, setIsActive] = useState(false);
   return (
     <div>
-      <h2>
-        <u>
-          <i> {title}</i>
-        </u>
-      </h2>
+      <h2 className="text-3xl font-bold underline">{title}</h2>
       {data.map((list) => (
         <div key={list.id}>
-          <h2>{list.title}</h2>
+          <Accordion collapseAll>
+            <Accordion.Panel>
+              <Accordion.Title>{list.title}</Accordion.Title>
+              <Accordion.Content>{list.content}</Accordion.Content>
+            </Accordion.Panel>
+          </Accordion>
         </div>
       ))}
     </div>
